@@ -7,8 +7,8 @@ Member 4- Vaibhav Lahoti
 Member 5- Aishwarya Kasulkar
 
 ## Git Learning Link
-https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
-https://rubygarage.org/blog/most-basic-git-commands-with-examples
+### https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
+### https://rubygarage.org/blog/most-basic-git-commands-with-examples
 
 ## Useful commands for group members
 ![image](https://user-images.githubusercontent.com/22931190/45184075-844efc80-b1eb-11e8-87ae-b0cf486c27d3.png)
