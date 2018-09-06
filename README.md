@@ -1,4 +1,4 @@
-# SE1_DEMO
+# SE1_TEAM_2
 This is the demo for collaboration of various members in SE1 team
 Member 1- Sandeep Satone
 Member 2- Ambarish Salodkar
