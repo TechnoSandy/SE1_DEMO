@@ -1,0 +1,64 @@
+package com.project.se.arlingtonauto;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class ViewReservedRental extends AppCompatActivity {
+    String[] fromDate= {"09/13/2018", "09/18/2018", "09/24/2018"};
+    String[] toDate={"09/15/2018", "09/22/2018", "09/29/2018"};
+    String[] amountPaid={"80$","100$","165$"};
+    String[] typeOfCar={"Economy","SUV", "Compact"};
+    String[] fromTime={"3 PM", "1 PM", "2 PM"};
+    String[] toTime={"9 AM", "12 PM","1 PM"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_reserved_rental);
+        ListView lv = (ListView) findViewById(android.R.id.list);
+        CustomAdapter customAdapter = new CustomAdapter();
+        lv.setAdapter(customAdapter);
+    }
+
+    class CustomAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return fromDate.length;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            view= getLayoutInflater().inflate(R.layout.customlayout,null);
+            TextView cartype_ans= view.findViewById(R.id.textView_cartype_ans);
+            TextView amount_ans= view.findViewById(R.id.textView_amount_ans);
+            TextView fromdate_ans= view.findViewById(R.id.textView_fromdate_ans);
+            TextView todate_ans= view.findViewById(R.id.textView_todate_ans);
+            TextView fromtime_ans= view.findViewById(R.id.textView_fromtime_ans);
+            TextView tilltime_ans= view.findViewById(R.id.textView_tilltime_ans);
+
+            cartype_ans.setText(typeOfCar[i]);
+            amount_ans.setText(amountPaid[i]);
+            fromdate_ans.setText(fromDate[i]);
+            todate_ans.setText(toDate[i]);
+            fromtime_ans.setText(fromTime[i]);
+            tilltime_ans.setText(toTime[i]);
+            return view;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+    }
+
+}

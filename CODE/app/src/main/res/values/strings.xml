@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">ArlingtonAuto</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string-array name="user_role">
+        <item>User</item>
+        <item>Manager</item>
+        <item>Admin</item>
+    </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string-array name="months_list">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string-array name="years_list">
+        <item>2017</item>
+        <item>2018</item>
+    </string-array>
+</resources>
