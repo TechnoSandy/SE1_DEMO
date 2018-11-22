@@ -1,0 +1,1 @@
+Removed the word 'function' which was appended after some usecase so that names of Use cases in UCD, HLUC and  UCID is in synchronization.
