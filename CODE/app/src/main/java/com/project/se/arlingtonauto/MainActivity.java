@@ -22,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final Intent i = new Intent(MainActivity.this, Dashboard.class);
+       final EditText UserName = findViewById(R.id.UsernameText);
+        final EditText Password = findViewById(R.id.PasswordText);
+         i.putExtra("username", UserName.getText().toString());
+        Log.d("UserName MainActivity ",UserName.getText().toString());
+
         final DatabaseConnector connection = new DatabaseConnector(this);
 
 //        setContentView(R.layout.activity_anushree);
@@ -47,15 +54,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: Code to check if the user exist will come here !!!
-                EditText UserName = findViewById(R.id.UsernameText);
-                EditText Password = findViewById(R.id.PasswordText);
+
                 Boolean result = connection.checkUser(UserName.getText().toString(),Password.getText().toString());
 
 
                 if(result){
                     loginToast();
                 if (UserRole.equals("User")) {
-                    startActivity(new Intent(MainActivity.this, Dashboard.class));
+//                    startActivity(new Intent(MainActivity.this, Dashboard.class));
+//                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+                    startActivity(i);
+                    MainActivity.this.finish();
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 } else if (UserRole.equals("Admin")) {
                     startActivity(new Intent(MainActivity.this, AdminDashboard.class));
