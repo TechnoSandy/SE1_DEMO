@@ -76,7 +76,7 @@ public class updateProfileScreen extends AppCompatActivity {
         backUpdateProfilePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(updateProfileScreen.this, urm.class));
+                startActivity(new Intent(updateProfileScreen.this, MainActivity.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -96,13 +96,7 @@ public class updateProfileScreen extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent i = new Intent(updateProfileScreen.this, urm.class);
-        i.putExtra("searchList", getIntent().getStringArrayListExtra("searchList"));
-        startActivity(i);
-        updateProfileScreen.this.finish();
-    }
+
 
     private void updateDatabase() {
         Context context = getApplicationContext();

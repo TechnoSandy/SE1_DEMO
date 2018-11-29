@@ -25,7 +25,7 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home_screen);
         username = getIntent().getStringExtra("username");
-        Log.d("UserName in Dashboard ",username);
+
         Button CancelReservedRental = findViewById(R.id.cancel_reservation);
         CancelReservedRental.setOnClickListener(new View.OnClickListener() {
             @Override

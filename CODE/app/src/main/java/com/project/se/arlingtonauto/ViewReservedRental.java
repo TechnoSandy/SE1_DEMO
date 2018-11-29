@@ -1,5 +1,6 @@
 package com.project.se.arlingtonauto;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ViewReservedRental extends AppCompatActivity {
     String[] fromDate= {"09/13/2018", "09/18/2018", "09/24/2018"};
@@ -32,6 +34,16 @@ public class ViewReservedRental extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ViewReservedRental.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
+
+        Button backButton = findViewById(R.id.button7);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backButtonToast();
+                startActivity(new Intent(ViewReservedRental.this, Dashboard.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -62,6 +74,8 @@ public class ViewReservedRental extends AppCompatActivity {
             return view;
         }
 
+
+
         @Override
         public long getItemId(int i) {
             return 0;
@@ -72,5 +86,13 @@ public class ViewReservedRental extends AppCompatActivity {
             return null;
         }
     }
+    private void backButtonToast() {
+        Context context = getApplicationContext();
+        CharSequence text = "Back Button Clicked";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
 
 }
