@@ -2,6 +2,7 @@ package com.project.se.arlingtonauto;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,8 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final DatabaseConnector connection = new DatabaseConnector(this);
 
 //        setContentView(R.layout.activity_anushree);
 
@@ -43,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: Code to check if the user exist will come here !!!
-                tostMsg();
+                EditText UserName = findViewById(R.id.UsernameText);
+                EditText Password = findViewById(R.id.PasswordText);
+                Boolean result = connection.checkUser(UserName.getText().toString(),Password.getText().toString());
+
+
+                if(result){
+                    loginToast();
                 if (UserRole.equals("User")) {
                     startActivity(new Intent(MainActivity.this, Dashboard.class));
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -55,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 } else {
                     Log.d("SELECTED ROLE", (String) UserRole);
+                }
+                }else{
+                    //test(result);
+                    LoginErrorToast("User Does not exist please register to login");
+
                 }
 
 //                startActivity(new Intent(MainActivity.this, Anushree.class));
@@ -77,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void tostMsg() {
+    private void loginToast() {
         Context context = getApplicationContext();
         CharSequence text = "Logged In successfully";
         int duration = Toast.LENGTH_SHORT;
@@ -85,6 +100,20 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
+    private void test(Boolean result) {
+        Context context = getApplicationContext();
+        CharSequence text = "result - "+result;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+    private void LoginErrorToast(String MSG) {
+        Context context = getApplicationContext();
+        CharSequence text = MSG;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
     private void registerMsg() {
         Context context = getApplicationContext();
         CharSequence text = "Please Register !!";

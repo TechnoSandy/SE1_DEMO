@@ -62,6 +62,42 @@ public class DatabaseConnector extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean checkUser(String username, String password) {
+
+        // array of columns to fetch
+        String[] columns = {
+                ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = USERNAME + " = ?" + " AND " + PASSWORD + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {username, password};
+        Cursor cursor = db.query(TABLE_NAME, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
+
+        cursor.moveToFirst();
+
+        int cursorCount = cursor.getCount();
+        Log.d("cursorCount", cursorCount+"");
+
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+TABLE_NAME,null);
