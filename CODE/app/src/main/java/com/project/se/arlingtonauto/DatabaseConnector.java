@@ -21,6 +21,19 @@ public class DatabaseConnector extends SQLiteOpenHelper {
     public static final String ADDRESS = "address";
     public static final String CLUB = "club_membership";
 
+    // Car TABLE
+    public static final String TABLE_NAME_cardetails = "cardetails";
+    public static final String carnum = "carnum";
+    public static final String carname = "carname";
+    public static final String carcap = "carcap";
+    public static final String carstatus = "carstatus";
+    public static final String weekdayrate = "weekdayrate";
+    public static final String weekendrate = "weekendrate";
+    public static final String weeklyrate = "weeklyrate";
+    public static final String gpsrate = "gpsrate";
+    public static final String onstarrate = "onstarrate";
+    public static final String siriusrate = "siriusrate";
+
 
     // Car table
 
@@ -32,11 +45,24 @@ public class DatabaseConnector extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "(username Text  NOT NULL   DEFAULT ('user'),password Text  NOT NULL   DEFAULT ('pass'),role Text  NOT NULL   DEFAULT ('user'),uta_id Integer  NOT NULL   DEFAULT (111),email Text  NOT NULL   DEFAULT ('x@x.com'),phone Integer  NOT NULL   DEFAULT (123456789), address Text  NOT NULL   DEFAULT ('NO ADDRESS'),club_membership Text  NOT NULL   DEFAULT ('NO'),srno Integer Primary Key Autoincrement  NOT NULL  )");
+        db.execSQL("DROP TABLE IF EXISTS cardetails");
+        db.execSQL("CREATE TABLE cardetails (     carname Text  NOT NULL  ,      carcap Integer  NOT NULL  ,      carstatus Integer  NOT NULL  ,      weekdayrate Integer  NOT NULL  ,      weekendrate Integer  NOT NULL  ,      weeklyrate Integer  NOT NULL  ,      gpsrate Integer  NOT NULL  ,      onstarrate  Integer  NOT NULL  ,      siriusrate  Integer  NOT NULL  ,      carnum Integer Primary Key  NOT NULL  )");
+        db.execSQL("INSERT INTO cardetails VALUES ('Smart', 1, 1, 32.99, 37.99, 230.93, 3, 5, 7, 1)");
+        db.execSQL("INSERT INTO cardetails VALUES ('Economy', 3, 0, 39.99, 44.99, 279.93, 3, 5, 7, 2)");
+        db.execSQL("INSERT INTO cardetails VALUES ('Compact', 4, 0, 44.99, 44.99, 314.93, 3, 5, 7, 3)");
+        db.execSQL("INSERT INTO cardetails VALUES ('Intermediate', 4, 1, 45.99, 50.99, 321.93, 0, 0, 0, 4)");
+        db.execSQL("INSERT INTO cardetails VALUES ('Standard', 5, 1, 48.99, 53.99, 324.93, 3, 5, 7, 5)");
+        db.execSQL("INSERT INTO cardetails VALUES ('Full Size', 6, 0, 52.99, 57.99, 370.93, 3, 5, 7, 6)");
+        db.execSQL("INSERT INTO cardetails VALUES ('SUV', 8, 1, 59.99, 64.99, 419.93, 3, 5, 7, 7)");
+        db.execSQL("INSERT INTO cardetails VALUES ('MiniVan', 9, 0, 59.99, 64.99, 419.93, 3, 5, 7, 8)");
+        db.execSQL("INSERT INTO cardetails VALUES ('Ultra Sports', 2, 0, 199.99, 204.99, 1399.93, 5, 7, 9, 9)");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_cardetails);
         onCreate(db);
     }
 
