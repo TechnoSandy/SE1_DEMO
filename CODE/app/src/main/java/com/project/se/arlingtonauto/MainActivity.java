@@ -25,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
         final Intent i = new Intent(MainActivity.this, Dashboard.class);
         final Intent i1 = new Intent(MainActivity.this, RentalManager_HomeScreen.class);
+        final Intent i2 = new Intent(MainActivity.this, AdminDashboard.class);
         final EditText UserName = findViewById(R.id.UsernameText);
         final EditText Password = findViewById(R.id.PasswordText);
         i.putExtra("username", UserName.getText().toString());
         i1 .putExtra("username", UserName.getText().toString());
+        i2 .putExtra("username", UserName.getText().toString());
 
 
         final DatabaseConnector connection = new DatabaseConnector(this);
@@ -67,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.finish();
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 } else if (UserRole.equals("Admin")) {
-                    startActivity(new Intent(MainActivity.this, AdminDashboard.class));
+//                    startActivity(new Intent(MainActivity.this, AdminDashboard.class));
+//                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    startActivity(i2);
+                    MainActivity.this.finish();
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }else if (UserRole.equals("Manager")) {
                     startActivity(i1);

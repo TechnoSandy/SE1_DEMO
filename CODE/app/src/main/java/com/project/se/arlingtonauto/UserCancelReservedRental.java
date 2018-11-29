@@ -45,6 +45,7 @@ String[] rideArray = {"ride 1 - 10/13/2018" ,"ride 2 - 10/14/2018", "ride 3 - 10
                 String  itemValue    = (String) listView.getItemAtPosition(position);
                 String item = list.get(itemPosition);
                 list.remove(itemPosition);
+                cancelToast();
                 adapter.notifyDataSetChanged();
 
 
@@ -78,6 +79,15 @@ String[] rideArray = {"ride 1 - 10/13/2018" ,"ride 2 - 10/14/2018", "ride 3 - 10
     private void backButtonToast() {
         Context context = getApplicationContext();
         CharSequence text = "Back Button Clicked";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    private void cancelToast() {
+        Context context = getApplicationContext();
+        CharSequence text = "Reservation cancelled";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);

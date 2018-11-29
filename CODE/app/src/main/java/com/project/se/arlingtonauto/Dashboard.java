@@ -86,6 +86,16 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+        // ViewSpecificRental
+        Button ViewSpecificRental = findViewById(R.id.view_specific_rental);
+        ViewSpecificRental.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, UserCancelReservedRental1.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
         // Request Rental
         Button RequestRental = findViewById(R.id.request_rental);
         RequestRental.setOnClickListener(new View.OnClickListener() {

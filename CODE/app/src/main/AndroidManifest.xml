@@ -29,12 +29,13 @@
         <activity android:name=".View_SpecificRental" />
         <activity android:name=".EditUserRMProfileScreen" />
         <activity android:name=".RevokeRenter" />
-        <activity android:name=".RevokeRenterConfirmPage"></activity>
-        <activity android:name=".Change_UserRole1"></activity>
-        <activity android:name=".Change_UserRole2"></activity>
-        <activity android:name=".Change_UserRole3"></activity>
-        <activity android:name=".urm"></activity>
-        <activity android:name=".updateProfileScreen"></activity>
+        <activity android:name=".RevokeRenterConfirmPage" />
+        <activity android:name=".Change_UserRole1" />
+        <activity android:name=".Change_UserRole2" />
+        <activity android:name=".Change_UserRole3" />
+        <activity android:name=".urm" />
+        <activity android:name=".updateProfileScreen" />
+        <activity android:name=".UserCancelReservedRental1"></activity>
     </application>
 
 </manifest>

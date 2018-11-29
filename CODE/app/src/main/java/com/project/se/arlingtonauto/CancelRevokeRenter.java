@@ -11,11 +11,16 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class CancelRevokeRenter extends AppCompatActivity {
     ListView listView;
 
     String[] dataArray = {"Sandeep Satone" ,"Parth Mehta", "Anushree", "Aishwarya" ,"Vaibhav Lahoti" ,"Ambarish salodkar" ,"Delete This User"};
 //String[] dataArray = {"Sandy","satish"};
+final ArrayList<String> list =new ArrayList<String>(Arrays.asList(dataArray));
+    ArrayAdapter<String> adapter;
 
 
     @Override
@@ -25,7 +30,7 @@ public class CancelRevokeRenter extends AppCompatActivity {
 //        showMessage();
         listView = findViewById(R.id.PrototypeUserListView);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, dataArray);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -38,11 +43,9 @@ public class CancelRevokeRenter extends AppCompatActivity {
 
                 // ListView Clicked item value
                 String  itemValue    = (String) listView.getItemAtPosition(position);
-
-                // Show Alert
-                Toast.makeText(getApplicationContext(),
-                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                        .show();
+                list.remove(itemPosition);
+                cancelRevokedToast(itemValue);
+                adapter.notifyDataSetChanged();
 
             }
 
@@ -81,6 +84,15 @@ public class CancelRevokeRenter extends AppCompatActivity {
         CharSequence text = "User can now book car again !";
 //        int duration = Toast.LENGTH_SHORT;
         int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    private void cancelRevokedToast(String Username) {
+        Context context = getApplicationContext();
+        CharSequence text = "User " +Username+ " Revoked Cancelled";
+        int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();

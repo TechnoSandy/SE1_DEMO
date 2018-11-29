@@ -1,10 +1,12 @@
 package com.project.se.arlingtonauto;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class View_SpecificRental extends AppCompatActivity {
 
@@ -23,5 +25,24 @@ public class View_SpecificRental extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+
+        Button backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backButtonToast();
+                startActivity(new Intent(View_SpecificRental.this, Dashboard.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
+    }
+
+    private void backButtonToast() {
+        Context context = getApplicationContext();
+        CharSequence text = "Back Button Clicked";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 }

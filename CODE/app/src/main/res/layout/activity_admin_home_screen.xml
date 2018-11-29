@@ -51,7 +51,7 @@
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/request_rental"
+                android:id="@+id/update_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Update Personal Profile"
