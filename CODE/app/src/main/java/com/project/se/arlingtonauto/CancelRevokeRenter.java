@@ -56,6 +56,17 @@ public class CancelRevokeRenter extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+
+
+        // Logout Button
+        Button Logout = findViewById(R.id.PrototypeLogout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CancelRevokeRenter.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
     }
     private void backButtonToast() {
         Context context = getApplicationContext();

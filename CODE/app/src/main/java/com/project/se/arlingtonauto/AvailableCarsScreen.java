@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,7 +37,20 @@ public class AvailableCarsScreen extends AppCompatActivity {
             }
         });
 
+
+        // Logout Button
+        Button Logout = findViewById(R.id.Logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AvailableCarsScreen.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
+
     }
+
+
 
 
 

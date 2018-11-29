@@ -32,7 +32,7 @@ tools:context=".RevokeRenter">
             tools:layout_editor_absoluteY="96dp" />
 
         <Button
-            android:id="@+id/button56"
+            android:id="@+id/Logout"
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:text="Logout"

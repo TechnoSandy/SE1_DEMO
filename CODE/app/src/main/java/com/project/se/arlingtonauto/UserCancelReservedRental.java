@@ -55,5 +55,15 @@ String[] rideArray = {"ride 1 - 10/13/2018" ,"ride 2 - 10/14/2018", "ride 3 - 10
             }
         });
 
+        // Logout Button
+        Button Logout = findViewById(R.id.PrototypeLogout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserCancelReservedRental.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
+
     }
 }

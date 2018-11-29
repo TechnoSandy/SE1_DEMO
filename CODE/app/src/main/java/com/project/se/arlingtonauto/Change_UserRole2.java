@@ -33,6 +33,17 @@ public class Change_UserRole2 extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+
+
+        // Logout Button
+        Button Logout = findViewById(R.id.logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Change_UserRole2.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
     }
     class CustomAdapter extends BaseAdapter
     {

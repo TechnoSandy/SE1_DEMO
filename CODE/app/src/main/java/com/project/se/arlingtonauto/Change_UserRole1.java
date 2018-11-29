@@ -24,5 +24,16 @@ public class Change_UserRole1 extends AppCompatActivity {
         });
 
 
+        // Logout Button
+        Button Logout = findViewById(R.id.logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Change_UserRole1.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
+
+
     }
 }

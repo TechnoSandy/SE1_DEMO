@@ -24,6 +24,9 @@ public class AdminDashboard extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+
+
+
         // Revoke Renter
         Button revoke_renter = findViewById(R.id.revoke_renter);
         revoke_renter.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +51,7 @@ public class AdminDashboard extends AppCompatActivity {
 
 
         // Logout Button
-        Button Logout = findViewById(R.id.Change_user_role);
+        Button Logout = findViewById(R.id.AdminDashboard_Logout);
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +83,7 @@ public class AdminDashboard extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+
 
 
     }

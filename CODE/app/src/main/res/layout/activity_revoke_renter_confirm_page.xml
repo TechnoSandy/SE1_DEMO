@@ -33,7 +33,7 @@
                 android:text="Back" />
 
             <Button
-                android:id="@+id/button56"
+                android:id="@+id/Logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

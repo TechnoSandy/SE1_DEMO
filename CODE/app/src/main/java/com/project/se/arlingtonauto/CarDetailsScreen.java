@@ -21,6 +21,16 @@ public class CarDetailsScreen extends AppCompatActivity {
                 confbk(v);
             }
         });
+
+        // Logout Button
+        Button Logout = findViewById(R.id.UserHomeScreen_Logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CarDetailsScreen.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
     }
         public void confbk(View view)
     {

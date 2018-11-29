@@ -1,10 +1,12 @@
 package com.project.se.arlingtonauto;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +25,16 @@ public class ViewReservedRental extends AppCompatActivity {
         ListView lv = (ListView) findViewById(android.R.id.list);
         CustomAdapter customAdapter = new CustomAdapter();
         lv.setAdapter(customAdapter);
+
+        // Logout Button
+        Button Logout = findViewById(R.id.Logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ViewReservedRental.this, MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
     }
 
     class CustomAdapter extends BaseAdapter {
