@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Intent i = new Intent(MainActivity.this, Dashboard.class);
-       final EditText UserName = findViewById(R.id.UsernameText);
+        final Intent i1 = new Intent(MainActivity.this, RentalManager_HomeScreen.class);
+        final EditText UserName = findViewById(R.id.UsernameText);
         final EditText Password = findViewById(R.id.PasswordText);
-         i.putExtra("username", UserName.getText().toString());
-        Log.d("UserName MainActivity ",UserName.getText().toString());
+        i.putExtra("username", UserName.getText().toString());
+        i1 .putExtra("username", UserName.getText().toString());
+
 
         final DatabaseConnector connection = new DatabaseConnector(this);
 
@@ -61,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 if(result){
                     loginToast();
                 if (UserRole.equals("User")) {
-//                    startActivity(new Intent(MainActivity.this, Dashboard.class));
-//                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
                     startActivity(i);
                     MainActivity.this.finish();
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -71,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, AdminDashboard.class));
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }else if (UserRole.equals("Manager")) {
-                    startActivity(new Intent(MainActivity.this, RentalManager_HomeScreen.class));
+                    startActivity(i1);
+                    MainActivity.this.finish();
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 } else {
                     Log.d("SELECTED ROLE", (String) UserRole);
