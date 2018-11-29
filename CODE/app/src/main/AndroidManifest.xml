@@ -33,6 +33,8 @@
         <activity android:name=".Change_UserRole1"></activity>
         <activity android:name=".Change_UserRole2"></activity>
         <activity android:name=".Change_UserRole3"></activity>
+        <activity android:name=".urm"></activity>
+        <activity android:name=".updateProfileScreen"></activity>
     </application>
 
 </manifest>

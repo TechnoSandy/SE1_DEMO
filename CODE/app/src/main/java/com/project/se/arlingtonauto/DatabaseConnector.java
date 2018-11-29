@@ -96,6 +96,27 @@ public class DatabaseConnector extends SQLiteOpenHelper {
         return false;
     }
 
+    public boolean updateData(String username, String password, String role, String utaid, String email, String phone, String address, String club) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(USERNAME, username);
+        contentValues.put(PASSWORD, password);
+        contentValues.put(ROLE, role);
+        contentValues.put(UTAID, utaid);
+        contentValues.put(EMAIL, email);
+        contentValues.put(PHONE, phone);
+        contentValues.put(ADDRESS, address);
+        contentValues.put(CLUB, club);
+        long result = db.update(TABLE_NAME, contentValues, "UTA_ID = ?", new String[]{utaid});
+        if (result == -1) {
+            Log.d("DataInserted", "False");
+        } else {
+            Log.d("DataInserted", "True");
+        }
+        db.close();
+        return true;
+    }
 
 
     public Cursor getAllData() {
